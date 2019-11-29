@@ -5,7 +5,18 @@ import '../styles/SearchFeild.css';
 class SearchFeild extends React.Component {
     constructor(props){
         super(props)
-        this.state = {results: []};
+        this.state = {
+          user_name: '',
+          intro: '',
+          langauge: '',
+          pop_repo: {
+            title: '',
+            repository: '',
+            description: '',
+            stars: '',
+            forks: ''
+          },
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -19,11 +30,19 @@ class SearchFeild extends React.Component {
       const data = new FormData(e.target);
 
       const url = 'https://api.github.com/search/users?q=ColinRosati1' // hardcode api
-      
+      // const url = 'https://api.github.com/search/users?q=' + data + '/repo'
       fetch(url, {
         method: 'GET'
       })
-      .then( res => console.log(res))
+      .then( res => res.json())
+      .then( res => {
+        console.log(res.items[0])
+        let usr_name = res.items[0].login
+        this.setState( {user_name: usr_name})
+      })
+      .then( () => {
+        console.log(this.state)
+      })
       
     }
 
