@@ -1,0 +1,49 @@
+DESIGN DOC
+----------------------
+Design document for Exozet frontend code challenge 
+
+Overview
+----------------------
+Use Github API to search users and display  users generated "resume" :
+popular repos, developer languages, user info
+
+Task 
+----------------------
+●	Create a landing page where the user can enter his or her github account name.
+●	Implement a “generate button” on the landing page that starts processing the previously entered account name and shows a result view to the user (the generated resumé).
+●	The result view consists of the following:
+○	Very basic github profile information
+○	A summary of which programming languages the github account owner has used in his/her repositories (with percentage).
+○	A list of the most popular repositories of the github account owner with title, repository description and the amount of stars and forks.
+●	Implement a kind of model that connects the data to the given HTML / Javascript template. You may use a view framework like React, but this is not mandatory.
+●	Make sure to use the official github API, please don't start parsing web pages manually.
+●	Stick to the given design as best as you can.
+●	The mark-up should fulfill basic accessibility standards. For example, form fields should be associated with a label, alt tags should be used. For keyboard operability there are bonus points.
+●	Please make sure that the markup is W3C valid and semantically correct. You can ignore errors caused by accessible attributes.
+●	The layout should work in newest versions of Safari, Chrome, Firefox, Edge - and of course Internet Explorer 11 :)
+
+
+Context
+----------------------
+React, Flexbox, Jest, responsive
+
+
+Proposed Solution
+----------------------
+
+
+
+TODOS
+----------------------
+
+
+
+
+Steps to Run
+----------------------
+1. Clone this repository
+2. npm install
+3. npm start
+
+
+
