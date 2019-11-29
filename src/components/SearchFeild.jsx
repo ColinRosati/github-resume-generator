@@ -15,13 +15,15 @@ class SearchFeild extends React.Component {
 
     handleSubmit(e){
       e.preventDefault();
-      console.log("search api", e)
+      console.log("search api", e.target)
       const data = new FormData(e.target);
+
+      const url = 'https://api.github.com/search/users?q=ColinRosati1' // hardcode api
       
-      fetch('/api/form-submit-url', {
-        method: 'POST',
-        body: data,
-      });
+      fetch(url, {
+        method: 'GET'
+      })
+      .then( res => console.log(res))
       
     }
 
