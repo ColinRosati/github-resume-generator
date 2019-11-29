@@ -1,11 +1,13 @@
 import React from 'react';
 import '../styles/AppHead.css';
 
-function ExozetApp() {
+function AppHead() {
+    const title = "e><ozet"
   return (
     <div className="app-head">
+        {title}
     </div>
   );
 }
 
-export default ExozetApp;
+export default AppHead;

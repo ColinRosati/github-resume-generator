@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,WAAW,CAAC;ECAR,OAAO,EAAE,IAAI;EACb,eAAe,EDAc,MAAM;ECCnC,cAAc,EDDO,MAAM;ECE3B,WAAW,EDF0B,MAAM;EAC3C,UAAU,EAAE,OAAkB;EAC9B,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,GAAG;EACZ,WAAW,EAAE,yGAAyG;EACtH,SAAS,EAAE,GAAG;CACjB",
+    "sources": [
+        "App.scss",
+        "mixins.scss"
+    ],
+    "names": [],
+    "file": "App.css"
+}

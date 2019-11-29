@@ -1,5 +1,5 @@
 import React from 'react';
-import AppHead from './AppBody'
+import AppHead from './AppHead'
 import AppBody from './AppBody'
 import '../styles/App.css';
 
