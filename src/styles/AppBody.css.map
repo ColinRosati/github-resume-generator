@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,SAAS,CAAC;ECAN,OAAO,EAAE,IAAI;EACb,eAAe,EDAc,MAAM;ECCnC,cAAc,EDDO,MAAM;ECE3B,WAAW,EDF0B,MAAM;EAC3C,gBAAgB,EAAE,IAAI;EACtB,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "AppBody.scss",
+        "mixins.scss"
+    ],
+    "names": [],
+    "file": "AppBody.css"
+}

@@ -1,8 +1,9 @@
-@import 'mixins.scss';
-.app-body-search {
+.app-body-results {
     @include flex-center(column, center, center);
     background-color: #fff;
     box-shadow: 2px 5px 30px rgb(100, 100, 100);
     width: 75%;
-    height: 25vh;
+    height: 100vh;
+    margin-top: 5%;
+    padding-top: 5%;
 }

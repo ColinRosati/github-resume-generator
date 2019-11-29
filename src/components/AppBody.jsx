@@ -1,12 +1,12 @@
 import React from 'react';
 import SearchFeild from './SearchFeild'
 import ResultsFeild from './ResultsFeild'
-import '../styles/App.css';
+import '../styles/AppBody.css';
 
 function AppBody() {
   return (
     <div className="app-body">
-        appBody
+        <h1>GithubResume</h1>
         <SearchFeild/>
         <ResultsFeild/>
     </div>

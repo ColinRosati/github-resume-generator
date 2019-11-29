@@ -1,10 +1,9 @@
 @import 'mixins.scss';
 .exozet-app {
-    @include flex-center(column, center, center);
-    background: rgb(230, 230, 230);
-    width: 90vw;
-    height: 100vh;
-    padding: 1em;
+    @include flex-center(column, center, none);
+    background: rgb(247, 244, 244);
+    width: 100vw;
+    padding: 0em 1em 1em 1em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1em;
 }

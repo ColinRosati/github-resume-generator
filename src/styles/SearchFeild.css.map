@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACb,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CACf",
+    "mappings": "AACA,AAAA,gBAAgB,CAAC;ECAb,OAAO,EAAE,IAAI;EACb,eAAe,EDAc,MAAM;ECCnC,cAAc,EDDO,MAAM;ECE3B,WAAW,EDF0B,MAAM;EAC3C,gBAAgB,EAAE,IAAI;EACtB,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,OAAkB;EAC3C,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CACf",
     "sources": [
-        "SearchFeild.scss"
+        "SearchFeild.scss",
+        "mixins.scss"
     ],
     "names": [],
     "file": "SearchFeild.css"

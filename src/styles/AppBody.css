@@ -1,4 +1,4 @@
-.app-body-search {
+.app-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,9 +13,6 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
-  -webkit-box-shadow: 2px 5px 30px #646464;
-          box-shadow: 2px 5px 30px #646464;
-  width: 75%;
-  height: 25vh;
+  width: 100%;
 }
-/*# sourceMappingURL=SearchFeild.css.map */
+/*# sourceMappingURL=AppBody.css.map */

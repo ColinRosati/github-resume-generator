@@ -1,12 +1,16 @@
 import React from 'react';
-// import '../styles/AppBody.css';
+import '../styles/SearchFeild.css';
 
-function AppBody() {
+function SearchFeild() {
   return (
     <div className="app-body-search">
-        search feild
+        <h2>Github username</h2>
+        <form>
+            <input></input>
+            <button>generate</button>
+        </form>
     </div>
   );
 }
 
-export default AppBody;
+export default SearchFeild;

@@ -1,7 +1,7 @@
 import React from 'react';
-// import '../styles/AppBody.css';
+import '../styles/ResultsFeild.css';
 
-function AppBody() {
+function ResultsFeild() {
   return (
     <div className="app-body-results">
         search results
@@ -9,4 +9,4 @@ function AppBody() {
   );
 }
 
-export default AppBody;
+export default ResultsFeild;
