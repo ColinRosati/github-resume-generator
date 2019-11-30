@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchFeild from './SearchFeild'
-import ResultsFeild from './ResultsFeild'
+// import ResultsFeild from './ResultsFeild'
 import '../styles/AppBody.css';
 
 function AppBody() {
@@ -8,7 +8,7 @@ function AppBody() {
     <div className="app-body">
         <h1>GithubResume</h1>
         <SearchFeild/>
-        <ResultsFeild/>
+        {/* <ResultsFeild/> */}
     </div>
   );
 }
