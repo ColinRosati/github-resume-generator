@@ -1,20 +1,21 @@
 import React from 'react';
 import PopularRepo from './PopularRepo'
-import ResultsFeild from './ResultsFeild'
+import ResumeFeild from './ResumeFeild'
 import '../styles/Resume.css';
 
 // Search feild create github api call from search input form
 class Resume extends React.Component {
     constructor(props){
         super(props)
-        this.i = 0
-
+        this.i = 1
+        let unique_items;
         this.state = { // create state object of all api details
           user_name: '',
           user_bio: '',
           user_location: '',
           user_link: '',
-          langauge: '',
+          langauge: [],
+          unique_langauge: [],
           repos: '',
           user_followers: '',
           user_start: '',
@@ -75,7 +76,6 @@ class Resume extends React.Component {
         let bio = res.bio;
         let location = res.location;
         let followers = res.followers;
-        console.log("start", start_date)
         this.setState({
           user_start: start_date,
           user_bio: bio,
@@ -90,6 +90,23 @@ class Resume extends React.Component {
 
     }
 
+
+    // push languages into langauge state
+    // sort langauges into unique langauges
+    // count all repeating langauges
+    // make percentage out from total_repo/repeat_language
+
+    popLang(lang){ 
+      this.state.langauge.push(lang) // push all languges
+
+      let langArray = this.state.langauge // language local array
+
+      const _unique = ( value, index, self) => { // return only unique values
+        return self.indexOf(value) === index;
+      }
+
+      this.unique_items = langArray.filter(_unique); // filter logic to remove repeating
+    }
 
 
   render(){ // handle API data here. render each array object into DOM elements
@@ -110,11 +127,17 @@ class Resume extends React.Component {
       { !items  // ternery conditional render items
               ? <div className="app-results-feild"></div>
               : <div className="app-results-feild">
-                  <ResultsFeild client={this.state}/>
+                  <ResumeFeild client={this.state}/>
+                  <div>
+                      <h4>Langauges</h4>
+                      
+                      <h5 className="langauges secondary">{this.unique_items}</h5>
+                  </div>
                   <div className="repo-results-wrapper">
                   <h5 className="repo-header-title">Popular Repositories</h5>
                   {items.map((res, index) => {
                       this.i = index
+                      this.popLang(items[index].language)
                       return <div key={items[index].id}><PopularRepo data={JSON.stringify(items[index])} key={items[index].id} /></div>
                       // return <div>{JSON.stringify(items[index])}</div>
                     })

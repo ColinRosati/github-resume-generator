@@ -1,7 +1,8 @@
 import React from 'react';
+import RepoLanguage from './RepoLanguage';
 import '../styles/PopRepo.css';
 
-function PopularRepo(props) {
+function ResumeFeild(props) {
     const usr = props.client
     const usr_name = props.client.user_name;
     const usr_bio = props.client.user_bio;
@@ -20,11 +21,6 @@ function PopularRepo(props) {
             <h5 className="secondary">{usr_bio}</h5>
             <h5 className="secondary"><a href={usr_link}>{usr_link}</a ></h5>
             <h5 className="secondary">On Github since {start_date}, {usr_name} is a developer in {location} with {repos} public repos and {followers} followers.</h5>
-            <div>
-                <h4>Langauges</h4>
-                <h5 className="langauges secondary">{usr_bio}</h5>
-                
-            </div>
           </div>
 
       }
@@ -33,4 +29,4 @@ function PopularRepo(props) {
   );
 }
 
-export default PopularRepo;
+export default ResumeFeild;
