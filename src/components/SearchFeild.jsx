@@ -1,5 +1,6 @@
 import React from 'react';
 import PopularRepo from './PopularRepo'
+import ResultsFeild from './ResultsFeild'
 import '../styles/SearchFeild.css';
 
 const sortData = (data) => {
@@ -103,12 +104,16 @@ class SearchFeild extends React.Component {
               <button> generate </button>
           </form>
       </div>
+      <div className="app-results-feild">
+      <ResultsFeild client={this.state}/>
       { !items  // ternery conditional render items
         ? <PopularRepo data={this.state}/>
         : items.map(res => {
           return <PopularRepo data={this.state}/>
         })
      }
+     </div>
+     
       </div>
     );
 }

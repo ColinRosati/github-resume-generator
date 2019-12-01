@@ -30,6 +30,8 @@ React, Flexbox, Jest, responsive
 
 Proposed Solution
 ----------------------
+Make one Api call from search feild.
+Resume is made from 2 components which deal with user and repo info.
 
 
 
