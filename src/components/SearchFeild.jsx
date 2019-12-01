@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultsFeild from './ResultsFeild'
+import PopularRepo from './PopularRepo'
 import '../styles/SearchFeild.css';
 
 const sortData = (data) => {
@@ -31,6 +31,7 @@ class SearchFeild extends React.Component {
           user_name: '',
           intro: '',
           langauge: '',
+          repos: '',
           pop_repo: {
             title: '',
             repository: '',
@@ -65,14 +66,16 @@ class SearchFeild extends React.Component {
         let stars = res[0].stargazers_count
         let des = res[0].description
         let name = res[0].name
+        let res_repos = res.length
         this.setState( {
           user_name: usr_name,
+          repos: res_repos,
           pop_repo:{
             title: name,
             description: des,
             stars: stars,
             forks: forks
-          }
+          },response: res
         })
         const usrData = sortData()
       })
@@ -89,6 +92,8 @@ class SearchFeild extends React.Component {
 
 
   render(){ // handle API data here. render each array object into DOM elements
+    let items = this.state.res;
+    console.log(items)
     return (
       <div className="app-body">
       <div className="app-body-search">
@@ -98,7 +103,12 @@ class SearchFeild extends React.Component {
               <button> generate </button>
           </form>
       </div>
-      <ResultsFeild data={this.state}/>
+      { !items  // ternery conditional render items
+        ? <PopularRepo data={this.state}/>
+        : items.map(res => {
+          return <PopularRepo data={this.state}/>
+        })
+     }
       </div>
     );
 }
