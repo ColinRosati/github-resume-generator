@@ -30,8 +30,8 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
-  -webkit-box-shadow: 2px 5px 30px #646464;
-          box-shadow: 2px 5px 30px #646464;
+  -webkit-box-shadow: 1px 1px 5px #64646459;
+          box-shadow: 1px 1px 5px #64646459;
   width: 55%;
   height: 100%;
   min-height: 100vh;
@@ -42,6 +42,7 @@
 
 .secondary a {
   color: red;
+  text-decoration: none;
 }
 
 .resume {
@@ -51,6 +52,7 @@
 
 .repo-name {
   color: red;
+  text-decoration: none;
 }
 
 .third {

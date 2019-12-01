@@ -102,28 +102,30 @@ class Resume extends React.Component {
     return (
       <div className="app-body">
       <div className="app-body-search">
-          <h2>Github username</h2>
+        <div className="app-body-search-wrapper">
+          <h2 className="search-head">Github username</h2>
           <form onSubmit={this.handleSubmit}>
               <input className="username" name="username" type="text"></input>
               <button> generate </button>
           </form>
+        </div>
       </div>
       
-     
-      <div className="app-results-feild">
-        <ResultsFeild client={this.state}/>
-        <div className="repo-results-wrapper">
-          <h5>Popular Repositories</h5>
-            { !items  // ternery conditional render items
-              ? <div></div>
-              : items.map((res, index) => {
-                this.i = index
-                return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id}/></div>
-                // return <div>{JSON.stringify(items[index])}</div>
-              })
-            }
-          </div>
-     </div>
+      { !items  // ternery conditional render items
+              ? <div className="app-results-feild"></div>
+              : <div className="app-results-feild">
+                  <ResultsFeild client={this.state}/>
+                  <div className="repo-results-wrapper">
+                  <h5>Popular Repositories</h5>
+                  {items.map((res, index) => {
+                      this.i = index
+                      return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id}/></div>
+                      // return <div>{JSON.stringify(items[index])}</div>
+                    })
+                  }
+                </div>
+              </div>
+        }
      
       </div>
     );

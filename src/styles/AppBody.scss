@@ -1,6 +1,6 @@
 @import 'mixins.scss';
 .app-body {
     @include flex-center(column, center, center);
-    background-color: #fff;
+    background-color: #efefef;
     width: 100%;
 }

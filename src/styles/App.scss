@@ -1,9 +1,9 @@
 @import 'mixins.scss';
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 .exozet-app {
     @include flex-center(column, center, none);
-    background: rgb(247, 244, 244);
     width: 100vw;
-    padding: 0em 1em 1em 1em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', sans-serif;
+    // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1em;
 }

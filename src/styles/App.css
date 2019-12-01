@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 .exozet-app {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,10 +13,8 @@
   -webkit-box-align: none;
       -ms-flex-align: none;
           align-items: none;
-  background: #f7f4f4;
   width: 100vw;
-  padding: 0em 1em 1em 1em;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 /*# sourceMappingURL=App.css.map */

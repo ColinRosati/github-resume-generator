@@ -17,7 +17,6 @@ class PopularRepo extends React.Component {
       const stars = data.stargazers_count
       const forks = data.forks
       const link =  data.html_url
-      console.log("results",data, name)
       return (
         <div className="app-popular-repo">
             { !this.props
@@ -32,7 +31,7 @@ class PopularRepo extends React.Component {
                 <div className="repo-rights">{repo_rights}</div>
               </div>
               <div className="repo-description">{description}</div>
-              <div className="repo-copy">This repo has {stars} stars and {forks} forks. If you would like more information about this repository and my contributed code please visit <a href={link}>my site</a></div>
+              <div className="repo-copy">This repo has {stars} stars and {forks} forks. If you would like more information about this repository and my contributed code please visit <a href={link} className="repo-name">my site</a></div>
               <hr/>
             </div>
             }

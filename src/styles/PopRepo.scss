@@ -7,7 +7,7 @@
 .app-results-feild {
     @include flex-center(column, none, center);
     background-color: #fff;
-    box-shadow: 2px 5px 30px rgb(100, 100, 100);
+    box-shadow: 1px 1px 5px #64646459;
     width: 55%;
     height: 100%;
     min-height: 100vh;
@@ -18,7 +18,8 @@
 
 .secondary {
     & a {
-        color: rgb(255, 0, 0)
+        color: rgb(255, 0, 0);
+        text-decoration: none;
     }
 }
 
@@ -28,7 +29,8 @@
 }
 
 .repo-name {
-    color: rgb(255, 0, 0)
+    color: rgb(255, 0, 0);
+    text-decoration: none;
 }
 
 .third {
