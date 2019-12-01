@@ -1,7 +1,7 @@
 import React from 'react';
 import PopularRepo from './PopularRepo'
 import ResultsFeild from './ResultsFeild'
-import '../styles/SearchFeild.css';
+import '../styles/Resume.css';
 
 const sortData = (data) => {
   console.log("sort data")
@@ -10,6 +10,7 @@ const sortData = (data) => {
  let newData = {
   user_name: '',
   intro: '',
+  user_link: '',
   langauge: '',
   pop_repo: {
     title: '',
@@ -25,14 +26,16 @@ const sortData = (data) => {
 }
 
 // Search feild create github api call from search input form
-class SearchFeild extends React.Component {
+class Resume extends React.Component {
     constructor(props){
         super(props)
         this.state = {
           user_name: '',
           intro: '',
+          user_link: '',
           langauge: '',
           repos: '',
+          user_start: '',
           pop_repo: {
             title: '',
             repository: '',
@@ -54,6 +57,7 @@ class SearchFeild extends React.Component {
       e.preventDefault();
       const name = document.querySelector(".username").value
    
+      const url_info= 'https://api.github.com/users/' + name
       const url_repo = 'https://api.github.com/users/' + name + '/repos'
 
       fetch(url_repo, {
@@ -63,6 +67,7 @@ class SearchFeild extends React.Component {
       .then( res => {
         console.log(res)
         let usr_name = res[0].owner.login
+        let usr_path = res[0].owner.html_url
         let forks = res[0].forks
         let stars = res[0].stargazers_count
         let des = res[0].description
@@ -70,6 +75,7 @@ class SearchFeild extends React.Component {
         let res_repos = res.length
         this.setState( {
           user_name: usr_name,
+          user_link: usr_path,
           repos: res_repos,
           pop_repo:{
             title: name,
@@ -88,13 +94,28 @@ class SearchFeild extends React.Component {
         this.setState( {error: true})
       })
 
+      fetch(url_info, {
+        method: 'GET'
+      })
+      .then( res => res.json())
+      .then( res => {
+        let start_date = res.created_at;
+        console.log("start", start_date)
+        this.setState({
+          user_start: start_date
+      })})
+      .catch( (err)=> {
+        console.log(err);
+        this.setState( {error: true})
+      })
+
     }
 
 
 
   render(){ // handle API data here. render each array object into DOM elements
     let items = this.state.res;
-    console.log(items)
+    console.log(items, this.state.user_start)
     return (
       <div className="app-body">
       <div className="app-body-search">
@@ -119,4 +140,4 @@ class SearchFeild extends React.Component {
 }
 }
 
-export default SearchFeild;
+export default Resume;
