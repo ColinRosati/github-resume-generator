@@ -2,6 +2,24 @@ import React from 'react';
 import ResultsFeild from './ResultsFeild'
 import '../styles/SearchFeild.css';
 
+const sortData = (data) => {
+ let newData = {
+  user_name: '',
+  intro: '',
+  langauge: '',
+  pop_repo: {
+    title: '',
+    repository: '',
+    description: '',
+    stars: '',
+    forks: ''
+  },
+  error:false
+};
+
+
+}
+
 // Search feild create github api call from search input form
 class SearchFeild extends React.Component {
     constructor(props){
@@ -32,15 +50,14 @@ class SearchFeild extends React.Component {
       const name = document.querySelector(".username").value
    
       const url_repo = 'https://api.github.com/users/' + name + '/repos'
-      const url = 'https://api.github.com/search/users?q=' + name 
+      // const url = 'https://api.github.com/search/users?q=' + name 
 
-      fetch(url, {
+      fetch(url_repo, {
         method: 'GET'
       })
       .then( res => res.json())
       .then( res => {
-        console.log(res.items[0], url)
-        let usr_name = res.items[0].login
+        let usr_name = res[0].owner.login
         this.setState( {user_name: usr_name})
       })
       .then( () => {
@@ -56,7 +73,8 @@ class SearchFeild extends React.Component {
       })
       .then( res => res.json())
       .then( res => {
-        console.log(res, url_repo)
+        console.log(res)
+        const usrData = sortData()
         // let usr_name = res.items[0].login
         // this.setState( {user_name: usr_name})
       })
