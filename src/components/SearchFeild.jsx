@@ -3,6 +3,9 @@ import ResultsFeild from './ResultsFeild'
 import '../styles/SearchFeild.css';
 
 const sortData = (data) => {
+  console.log("sort data")
+
+ 
  let newData = {
   user_name: '',
   intro: '',
@@ -50,15 +53,28 @@ class SearchFeild extends React.Component {
       const name = document.querySelector(".username").value
    
       const url_repo = 'https://api.github.com/users/' + name + '/repos'
-      // const url = 'https://api.github.com/search/users?q=' + name 
 
       fetch(url_repo, {
         method: 'GET'
       })
       .then( res => res.json())
       .then( res => {
+        console.log(res)
         let usr_name = res[0].owner.login
-        this.setState( {user_name: usr_name})
+        let forks = res[0].forks
+        let stars = res[0].stargazers_count
+        let des = res[0].description
+        let name = res[0].name
+        this.setState( {
+          user_name: usr_name,
+          pop_repo:{
+            title: name,
+            description: des,
+            stars: stars,
+            forks: forks
+          }
+        })
+        const usrData = sortData()
       })
       .then( () => {
         console.log(this.state)
@@ -68,17 +84,6 @@ class SearchFeild extends React.Component {
         this.setState( {error: true})
       })
 
-      fetch(url_repo, {
-        method: 'GET'
-      })
-      .then( res => res.json())
-      .then( res => {
-        console.log(res)
-        const usrData = sortData()
-        // let usr_name = res.items[0].login
-        // this.setState( {user_name: usr_name})
-      })
-      
     }
 
 
