@@ -31,10 +31,12 @@ class Resume extends React.Component {
         super(props)
         this.state = {
           user_name: '',
-          intro: '',
+          user_bio: '',
+          user_location: '',
           user_link: '',
           langauge: '',
           repos: '',
+          user_followers: '',
           user_start: '',
           pop_repo: {
             title: '',
@@ -94,15 +96,22 @@ class Resume extends React.Component {
         this.setState( {error: true})
       })
 
-      fetch(url_info, {
+      fetch(url_info, { // second api call
         method: 'GET'
       })
       .then( res => res.json())
       .then( res => {
         let start_date = res.created_at;
+        let bio = res.bio;
+        let location = res.location;
+        let followers = res.followers;
         console.log("start", start_date)
         this.setState({
-          user_start: start_date
+          user_start: start_date,
+          user_bio: bio,
+          user_location: location,
+          user_followers: followers
+
       })})
       .catch( (err)=> {
         console.log(err);
