@@ -6,7 +6,7 @@ import '../styles/AppBody.css';
 function AppBody() {
   return (
     <div className="app-body">
-        <h1>Github Resume</h1>
+        <h1 className="app-body-head">Github Resume</h1>
         <Resume/>
     </div>
   );

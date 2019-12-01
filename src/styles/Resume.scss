@@ -27,15 +27,16 @@ form {
 input {
     width: 70%;
     border-radius: 5px;
-    height: 25px;
+    height: 35px;
     border: 0.5px solid rgb(207, 207, 207);
     font-size: 1.3em;
     padding-left: 10px;
+    color: #31313159;
 }
 
 form>button {
     width: 20%;
-    height: 25px;
+    height: 45px;
     border-radius: 15px;
     border: 0px;
     background-color: rgb(252, 81, 81);
@@ -48,5 +49,14 @@ form>button {
     @include flex-center(column, none, none);
     text-align: left;
     background-color: #fff;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.resume {
+    text-align: left;
+    // width: 90%;
+    // margin: 1em 0;
     width: 90%;
+    padding: 0 1em;
 }

@@ -45,11 +45,6 @@
   text-decoration: none;
 }
 
-.resume {
-  text-align: left;
-  width: 90%;
-}
-
 .repo-name {
   color: red;
   text-decoration: none;
@@ -60,8 +55,12 @@
 }
 
 .repo-wrapper {
-  padding: 0.5em 0;
+  padding: 0.5em 2.5em;
   font-size: 0.8em;
+}
+
+.repo-wrapper:hover {
+  background-color: #ffe1e1;
 }
 
 .repo-title {
@@ -77,5 +76,10 @@
 .repo-details,
 .repo-copy {
   padding: 2% 0;
+}
+
+.repo-header-title {
+  width: 90%;
+  padding: 0 2em;
 }
 /*# sourceMappingURL=PopRepo.css.map */

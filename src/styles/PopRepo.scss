@@ -23,11 +23,6 @@
     }
 }
 
-.resume {
-    text-align: left;
-    width: 90%
-}
-
 .repo-name {
     color: rgb(255, 0, 0);
     text-decoration: none;
@@ -38,8 +33,11 @@
 }
 
 .repo-wrapper {
-    padding: 0.5em 0;
+    padding: 0.5em 2.5em;
     font-size: 0.8em;
+    &:hover {
+        background-color: rgb(255, 225, 225);
+    }
 }
 
 .repo-title {
@@ -51,4 +49,9 @@
 .repo-details,
 .repo-copy {
     padding: 2% 0;
+}
+
+.repo-header-title {
+    width: 90%;
+    padding: 0 2em;
 }

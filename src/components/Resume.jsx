@@ -116,7 +116,7 @@ class Resume extends React.Component {
               : <div className="app-results-feild">
                   <ResultsFeild client={this.state}/>
                   <div className="repo-results-wrapper">
-                  <h5>Popular Repositories</h5>
+                  <h5 className="repo-header-title">Popular Repositories</h5>
                   {items.map((res, index) => {
                       this.i = index
                       return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id}/></div>
