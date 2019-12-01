@@ -47,7 +47,6 @@ class Resume extends React.Component {
       })
       .then( res => res.json())
       .then( res => {
-        console.log(res)
         let usr_name = res[this.i].owner.login
         let usr_path = res[this.i].owner.html_url
         let forks = res[this.i].forks
@@ -61,9 +60,6 @@ class Resume extends React.Component {
           repos: res_repos,
           response: res
         })
-      })
-      .then( () => {
-        console.log(this.state)
       })
       .catch( (err)=> {
         console.log(err);
@@ -98,13 +94,13 @@ class Resume extends React.Component {
 
   render(){ // handle API data here. render each array object into DOM elements
     let items = this.state.response;
-    console.log(items)
     return (
       <div className="app-body">
       <div className="app-body-search">
         <div className="app-body-search-wrapper">
           <h2 className="search-head">Github username</h2>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} alt="username">
+              <label htmlFor="username"></label>
               <input className="username" name="username" type="text"></input>
               <button> generate </button>
           </form>
@@ -119,7 +115,7 @@ class Resume extends React.Component {
                   <h5 className="repo-header-title">Popular Repositories</h5>
                   {items.map((res, index) => {
                       this.i = index
-                      return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id}/></div>
+                      return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id} id={items.id}/></div>
                       // return <div>{JSON.stringify(items[index])}</div>
                     })
                   }
