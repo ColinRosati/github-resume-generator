@@ -18,4 +18,23 @@
   width: 75%;
   height: 25vh;
 }
+
+.repo-results-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  text-align: left;
+  background-color: #fff;
+  width: 90%;
+}
 /*# sourceMappingURL=Resume.css.map */

@@ -6,3 +6,10 @@
     width: 75%;
     height: 25vh;
 }
+
+.repo-results-wrapper {
+    @include flex-center(column, none, none);
+    text-align: left;
+    background-color: #fff;
+    width: 90%;
+}

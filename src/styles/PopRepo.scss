@@ -1,9 +1,7 @@
 @import 'mixins.scss';
 .app-popular-repo {
-    @include flex-center(column, center, center);
+    @include flex-center(column, center, none);
     height: 100%;
-    padding: 1em;
-    font-size: 1.3em;
 }
 
 .app-results-feild {
@@ -11,7 +9,8 @@
     background-color: #fff;
     box-shadow: 2px 5px 30px rgb(100, 100, 100);
     width: 55%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     margin-top: 0%;
     padding: 1em;
     font-size: 1.3em;
@@ -26,4 +25,28 @@
 .resume {
     text-align: left;
     width: 90%
+}
+
+.repo-name {
+    color: rgb(255, 0, 0)
+}
+
+.third {
+    color: rgb(102, 102, 102)
+}
+
+.repo-wrapper {
+    padding: 0.5em 0;
+    font-size: 0.8em;
+}
+
+.repo-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 0;
+}
+
+.repo-details,
+.repo-copy {
+    padding: 2% 0;
 }

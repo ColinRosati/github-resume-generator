@@ -3,33 +3,13 @@ import PopularRepo from './PopularRepo'
 import ResultsFeild from './ResultsFeild'
 import '../styles/Resume.css';
 
-const sortData = (data) => {
-  console.log("sort data")
-
- 
- let newData = {
-  user_name: '',
-  intro: '',
-  user_link: '',
-  langauge: '',
-  pop_repo: {
-    title: '',
-    repository: '',
-    description: '',
-    stars: '',
-    forks: ''
-  },
-  error:false
-};
-
-
-}
-
 // Search feild create github api call from search input form
 class Resume extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
+        this.i = 0
+
+        this.state = { // create state object of all api details
           user_name: '',
           user_bio: '',
           user_location: '',
@@ -51,10 +31,9 @@ class Resume extends React.Component {
     }
 
     componentDidMount(){
-      // document.querySelector()
     }
 
-    handleSubmit(e){
+    handleSubmit(e){ // submit search api call
       
       e.preventDefault();
       const name = document.querySelector(".username").value
@@ -63,30 +42,25 @@ class Resume extends React.Component {
       const url_repo = 'https://api.github.com/users/' + name + '/repos'
 
       fetch(url_repo, {
-        method: 'GET'
+        method: 'GET',
+        'X-RateLimit-Limit': '5000'
       })
       .then( res => res.json())
       .then( res => {
         console.log(res)
-        let usr_name = res[0].owner.login
-        let usr_path = res[0].owner.html_url
-        let forks = res[0].forks
-        let stars = res[0].stargazers_count
-        let des = res[0].description
-        let name = res[0].name
+        let usr_name = res[this.i].owner.login
+        let usr_path = res[this.i].owner.html_url
+        let forks = res[this.i].forks
+        let stars = res[this.i].stargazers_count
+        let des = res[this.i].description
+        let name = res[this.i].name
         let res_repos = res.length
         this.setState( {
           user_name: usr_name,
           user_link: usr_path,
           repos: res_repos,
-          pop_repo:{
-            title: name,
-            description: des,
-            stars: stars,
-            forks: forks
-          },response: res
+          response: res
         })
-        const usrData = sortData()
       })
       .then( () => {
         console.log(this.state)
@@ -123,8 +97,8 @@ class Resume extends React.Component {
 
 
   render(){ // handle API data here. render each array object into DOM elements
-    let items = this.state.res;
-    console.log(items, this.state.user_start)
+    let items = this.state.response;
+    console.log(items)
     return (
       <div className="app-body">
       <div className="app-body-search">
@@ -134,14 +108,21 @@ class Resume extends React.Component {
               <button> generate </button>
           </form>
       </div>
+      
+     
       <div className="app-results-feild">
-      <ResultsFeild client={this.state}/>
-      { !items  // ternery conditional render items
-        ? <PopularRepo data={this.state}/>
-        : items.map(res => {
-          return <PopularRepo data={this.state}/>
-        })
-     }
+        <ResultsFeild client={this.state}/>
+        <div className="repo-results-wrapper">
+          <h5>Popular Repositories</h5>
+            { !items  // ternery conditional render items
+              ? <div></div>
+              : items.map((res, index) => {
+                this.i = index
+                return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id}/></div>
+                // return <div>{JSON.stringify(items[index])}</div>
+              })
+            }
+          </div>
      </div>
      
       </div>
