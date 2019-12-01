@@ -17,11 +17,12 @@ class PopularRepo extends React.Component {
       const stars = data.stargazers_count
       const forks = data.forks
       const link =  data.html_url
+      // console.log(this.props.id)
       return (
         <div className="app-popular-repo">
             { !this.props
             ?<div></div>
-            :<div className="repo-wrapper">
+            :<div className="repo-wrapper"  >
               <div className="repo-title third">
                 <div className="repo-name">{name}</div>
                 <div className="repo-year">{year}</div>

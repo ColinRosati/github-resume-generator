@@ -115,7 +115,7 @@ class Resume extends React.Component {
                   <h5 className="repo-header-title">Popular Repositories</h5>
                   {items.map((res, index) => {
                       this.i = index
-                      return <div><PopularRepo data={JSON.stringify(items[index])} key={items.id} id={items.id}/></div>
+                      return <div key={items[index].id}><PopularRepo data={JSON.stringify(items[index])} key={items[index].id} /></div>
                       // return <div>{JSON.stringify(items[index])}</div>
                     })
                   }
