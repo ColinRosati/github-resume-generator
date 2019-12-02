@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/PopRepo.css';
 
+// component that renders all repo details. used for each repo
 class PopularRepo extends React.Component {
     constructor(props){
         super(props)
     }
 
-     
     render(){
-      let data = JSON.parse(this.props.data)
+      let data = JSON.parse(this.props.data) //TODO put all these var into constructor for speed
       const name = data.name
       const language = data.language
       const repo_rights =  data.liscence;
@@ -17,9 +17,8 @@ class PopularRepo extends React.Component {
       const stars = data.stargazers_count
       const forks = data.forks
       const link =  data.html_url
-      // console.log(this.props.id)
       return (
-        <div className="app-popular-repo">
+        <div className="app-popular-repo"  key={this.props.id}>
             { !this.props
             ?<div></div>
             :<div className="repo-wrapper"  >

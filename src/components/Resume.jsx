@@ -35,10 +35,9 @@ class Resume extends React.Component {
     }
 
     handleSubmit(e){ // submit search api call
-      
       e.preventDefault();
+
       const name = document.querySelector(".username").value
-   
       const url_info= 'https://api.github.com/users/' + name
       const url_repo = 'https://api.github.com/users/' + name + '/repos'
 
@@ -46,8 +45,8 @@ class Resume extends React.Component {
         method: 'GET',
         'X-RateLimit-Limit': '5000'
       })
-      .then( res => res.json())
-      .then( res => {
+      .then( res => res.json()) // coherse into JSON
+      .then( res => { // put all repo data into state
         let usr_name = res[this.i].owner.login
         let usr_path = res[this.i].owner.html_url
         let forks = res[this.i].forks
@@ -62,16 +61,16 @@ class Resume extends React.Component {
           response: res
         })
       })
-      .catch( (err)=> {
-        console.log(err);
-        this.setState( {error: true})
+      .catch( (err)=> { // catch any error, set state error
+        console.log(err); 
+        this.setState( {error: true}) //TODO handle error catch statments
       })
 
       fetch(url_info, { // second api call
         method: 'GET'
       })
       .then( res => res.json())
-      .then( res => {
+      .then( res => { // put all info data into state
         let start_date = res.created_at;
         let bio = res.bio;
         let location = res.location;
@@ -85,7 +84,7 @@ class Resume extends React.Component {
       })})
       .catch( (err)=> {
         console.log(err);
-        this.setState( {error: true})
+        this.setState( {error: true}) //TODO handle error catch statments
       })
 
     }
@@ -95,7 +94,7 @@ class Resume extends React.Component {
     // sort langauges into unique langauges
     // count all repeating langauges
     // make percentage out from total_repo/repeat_language
-
+    // TODO finish this component features and style
     popLang(lang){ 
       this.state.langauge.push(lang) // push all languges
 
@@ -112,8 +111,9 @@ class Resume extends React.Component {
   render(){ // handle API data here. render each array object into DOM elements
     let items = this.state.response;
     return (
+
       <div className="app-body">
-      <div className="app-body-search">
+      <div className="app-body-search">   //TODO put all this form into seperate component
         <div className="app-body-search-wrapper">
           <h2 className="search-head">Github username</h2>
           <form onSubmit={this.handleSubmit} alt="username">
@@ -125,30 +125,29 @@ class Resume extends React.Component {
       </div>
       
       { !items  // ternery conditional render items
-              ? <div className="app-results-feild"></div>
+              ? <div className="app-results-feild">Search valid github users</div>
               : <div className="app-results-feild">
                   <ResumeFeild client={this.state}/>
                   <div>
                       <h4>Langauges</h4>
                       
-                      <h5 className="langauges secondary">{this.unique_items}</h5>
+                      <h5 className="langauges secondary">{this.unique_items}</h5> //TODO handle all repo langauge into async component
                   </div>
+
                   <div className="repo-results-wrapper">
-                  <h5 className="repo-header-title">Popular Repositories</h5>
-                  {items.map((res, index) => {
-                      this.i = index
-                      this.popLang(items[index].language)
-                      return <div key={items[index].id}><PopularRepo data={JSON.stringify(items[index])} key={items[index].id} /></div>
-                      // return <div>{JSON.stringify(items[index])}</div>
-                    })
-                  }
-                </div>
+                    <h5 className="repo-header-title">Popular Repositories</h5>
+                      {items.map((res, index) => {
+                          this.i = index
+                          this.popLang(items[index].language)
+                          return <div key={items[index].id}><PopularRepo data={JSON.stringify(items[index])} key={items[index].id} /></div>
+                        })
+                      }
+                  </div>
               </div>
         }
-     
       </div>
     );
-}
+  }
 }
 
 export default Resume;

@@ -2,6 +2,7 @@ import React from 'react';
 import RepoLanguage from './RepoLanguage';
 import '../styles/PopRepo.css';
 
+// component that renders all user resume details
 function ResumeFeild(props) {
     const usr = props.client
     const usr_name = props.client.user_name;

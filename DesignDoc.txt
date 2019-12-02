@@ -32,13 +32,20 @@ Proposed Solution
 ----------------------
 Make one Api call from search feild.
 Resume is made from 2 components which deal with user and repo info.
+create language as async component, becuase compiling all language involves mapping language through each repo.
+
 
 
 
 TODOS
 ----------------------
-
-
+Make responsive styling with media queries
+Complete all language functionalities and put into async component with await.
+Filter populate repos. I wasn't sure which api data to base this off of (stars, forks, follows?). array.prototype.filter comparing the rule
+handle state errors with DOM instructions to try again ...
+Put form into its own component to improve clarity of Resume render component
+write Jest unit tests for all components and api calls
+write Jest and Puppeteer virtual dom tests
 
 
 Steps to Run
