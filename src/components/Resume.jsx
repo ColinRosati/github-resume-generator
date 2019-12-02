@@ -95,6 +95,7 @@ class Resume extends React.Component {
     // count all repeating langauges
     // make percentage out from total_repo/repeat_language
     // TODO finish this component features and style
+    // TODO handle all repo langauge into async component
     popLang(lang){ 
       this.state.langauge.push(lang) // push all languges
 
@@ -107,13 +108,13 @@ class Resume extends React.Component {
       this.unique_items = langArray.filter(_unique); // filter logic to remove repeating
     }
 
-
+//TODO put all this form into seperate component
   render(){ // handle API data here. render each array object into DOM elements
     let items = this.state.response;
     return (
 
       <div className="app-body">
-      <div className="app-body-search">   //TODO put all this form into seperate component
+      <div className="app-body-search">   
         <div className="app-body-search-wrapper">
           <h2 className="search-head">Github username</h2>
           <form onSubmit={this.handleSubmit} alt="username">
@@ -131,7 +132,7 @@ class Resume extends React.Component {
                   <div>
                       <h4>Langauges</h4>
                       
-                      <h5 className="langauges secondary">{this.unique_items}</h5> //TODO handle all repo langauge into async component
+                      <h5 className="langauges secondary">{this.unique_items}</h5> 
                   </div>
 
                   <div className="repo-results-wrapper">
